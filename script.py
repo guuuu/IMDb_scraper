@@ -129,6 +129,16 @@ class imdb():
                                 movie_stars = ["Unknown"]
                                 #print("Step 11.1 of 13 - concluded")
 
+                            for i in range(len(movie_directors)): movie_directors[i].replace("|", "") 
+                            for i in range(len(movie_stars)): movie_stars[i].replace("|", "") 
+
+                            movie_title.strip()
+                            movie_duration.strip()
+                            map(str.strip, movie_genres)
+                            movie_synopsis.strip()
+                            map(str.strip, movie_directors)
+                            map(str.strip, movie_stars)
+
                             movie_dic = {
                                             "id": movie_id,
                                             "title": movie_title,
@@ -235,6 +245,16 @@ class imdb():
                                 serie_directors = ["Unknown"]
                                 serie_stars = ["Unknown"]
                                 #print("Step 11.1 of 13 - concluded")
+
+                            for i in range(len(serie_directors)): serie_directors[i].replace("|", "") 
+                            for i in range(len(serie_stars)): serie_stars[i].replace("|", "") 
+
+                            serie_title.strip()
+                            serie_duration.strip()
+                            map(str.strip, serie_genres)
+                            serie_synopsis.strip()
+                            map(str.strip, serie_directors)
+                            map(str.strip, serie_stars)
 
                             serie_dic = {
                                             "id": serie_id,
@@ -346,6 +366,16 @@ class imdb():
                                 game_stars = ["Unknown"]
                                 #print("Step 11.1 of 13 - concluded")
 
+                            for i in range(len(game_directors)): game_directors[i].replace("|", "") 
+                            for i in range(len(game_stars)): game_stars[i].replace("|", "") 
+
+                            game_title.strip()
+                            game_duration.strip()
+                            map(str.strip, game_genres)
+                            game_synopsis.strip()
+                            map(str.strip, game_directors)
+                            map(str.strip, game_stars)
+
                             game_dic = {
                                             "id": game_id,
                                             "title": game_title,
@@ -424,4 +454,8 @@ if __name__ == "__main__":
     imdb = imdb()
     t = time.time()
     imdb.run()
-    print(f"Program took {time.time() - t} to scrape")
+    t2 = time.time() - t
+    print(f"Program took {(t2):.5f} seconds to scrape")
+    print(f"Program took {((t2) / 60):.5f} hours to scrape")
+    print(f"Program took {(((t2) / 60) / 24):.5f} days to scrape")
+    print(f"Program took {((((t2) / 60) / 24) / 7):.5f} weeks to scrape")
