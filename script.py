@@ -69,8 +69,8 @@ class imdb():
                     else: qtd = int(qtd[0])
                     qtd = qtd if qtd >= 50 else 1            
                 __counter = 1
-                #for i in range(1, qtd, 1):
-                for i in range(1, 3, 1):
+                for i in range(1, qtd, 1):
+                #for i in range(1, 3, 1):
                     try:
                         print(f"Page {i} of {qtd} - movies")
                         __driver.get(__default_url + str(genre).lower() + __default_url2 + "&start=" + str(__counter))
@@ -186,8 +186,8 @@ class imdb():
                     else: qtd = int(qtd[0])
                     qtd = qtd if qtd >= 50 else 1            
                 __counter = 1
-                #for i in range(1, qtd, 1):
-                for i in range(1, 3, 1):
+                for i in range(1, qtd, 1):
+                #for i in range(1, 3, 1):
                     try:
                         print(f"Page {i} of {qtd} - series")
                         __driver.get(__default_url + str(genre).lower() + __default_url2 + "&start=" + str(__counter))
@@ -306,8 +306,8 @@ class imdb():
                     qtd = qtd if qtd >= 50 else 1
 
                 __counter = 1
-                #for i in range(1, qtd, 1):
-                for i in range(1, 3, 1):
+                for i in range(1, qtd, 1):
+                #for i in range(1, 3, 1):
                     try:
                         print(f"Page {i} of {qtd} - games")
                         __driver.get(__default_url + str(genre).lower() + __default_url2 + "&start=" + str(__counter))
@@ -451,11 +451,10 @@ class imdb():
         check.join()
 
 if __name__ == "__main__":
-    imdb = imdb()
-    t = time.time()
-    imdb.run()
-    t2 = time.time() - t
-    print(f"Program took {(t2):.5f} seconds to scrape")
-    print(f"Program took {((t2) / 60):.5f} hours to scrape")
-    print(f"Program took {(((t2) / 60) / 24):.5f} days to scrape")
-    print(f"Program took {((((t2) / 60) / 24) / 7):.5f} weeks to scrape")
+    try:
+        imdb = imdb()
+        t = time.time()
+        imdb.run()
+        print(f"Program took {(time.time() - t):.2f} seconds to scrape")
+    except Exception as ex:
+        print(ex)
